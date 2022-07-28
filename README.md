@@ -21,8 +21,10 @@ Installer les fichiers suivant :
 - Lancer le docker compose qui va créer les images. Command: docker-compose up
 
 Command:Exécutez la commande suivante dans le terminal pour installer minikube
+```console
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
+```
 - Start minikube. command:  minikube start
 
 - Exécutez la commande suivante pour lancer le dashboard de minikube : minikube dashboard --url=true
