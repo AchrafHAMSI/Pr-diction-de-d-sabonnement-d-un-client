@@ -1,0 +1,6 @@
+FROM python:latest
+RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir requests
+ADD Authentication_test.py /my_tests/Authentication_test.py
+WORKDIR /my_tests
+ENV LOG 1
+CMD python3 Authentication_test.py

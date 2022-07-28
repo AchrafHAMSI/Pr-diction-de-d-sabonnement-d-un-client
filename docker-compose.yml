@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+    first_container_API:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: flask_api
+        container_name: first_container_API
+        networks:
+            - my_exam_network
+        ports:
+            - 8000:8000
+            
+
+    second_container_authentification:
+        build:
+            context: .
+            dockerfile: Dockerfile1
+        image: authentication_test
+        container_name: second_container_authentication
+        depends_on:
+            - first_container_API
+        networks:
+            - my_exam_network
+
+    third_container_ml:
+        build:
+            context: .
+            dockerfile: Dockerfile2
+        image: ml_test
+        container_name: third_container_ml
+        depends_on:
+            - first_container_API
+        networks:
+            - my_exam_network
+
+networks:
+    my_exam_network:

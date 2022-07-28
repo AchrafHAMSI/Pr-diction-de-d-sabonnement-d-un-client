@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: churn-deployment
+  labels:
+    app: churn-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: churn-app
+  template:
+    metadata:
+      labels:
+        app: churn-app
+    spec:
+      containers:
+      - name: my-first-container
+        image: flask_api
+        ports:
+        - containerPort: 8000
+
+      - name: second-container-authentication
+        image:  authentication_test
+        ports:
+        - containerPort: 8000
+
+      - name: third-container-ml
+        image:  ml_test
+        ports:
+        - containerPort: 8000
